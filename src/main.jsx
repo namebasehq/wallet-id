@@ -8,6 +8,7 @@ import App from './App.jsx';
 
 import '@rainbow-me/rainbowkit/styles.css';
 import './index.css';
+import { CustomAvatar } from './CustomAvatar.jsx';
 
 const queryClient = new QueryClient();
 
@@ -22,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
+        <RainbowKitProvider avatar={CustomAvatar}>
           <App />
         </RainbowKitProvider>
       </QueryClientProvider>
