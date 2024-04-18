@@ -1,3 +1,4 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import walletLogo from './assets/wallet.id.png';
 import searchIcon from './assets/search.png';
 import hnsLogo from './assets/hns.id.png';
@@ -10,11 +11,7 @@ function App() {
           <div className="h-20 p-4 justify-between items-center inline-flex w-full ">
             <img className="w-36" src={walletLogo} />
             <div className="justify-start items-center gap-6 flex ">
-              <div className="px-4 py-2 bg-blue-600 rounded-2xl justify-center items-center gap-2 flex">
-                <div className="text-white text-sm font-medium leading-normal">
-                  Connect Wallet
-                </div>
-              </div>
+              <ConnectButton />
             </div>
           </div>
           <div className="flex-col justify-start items-center gap-16 flex px-4 lg:px-0">
