@@ -2,22 +2,34 @@ import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ToastContainer } from 'react-toastify';
 import { WagmiProvider } from 'wagmi';
-import { optimism } from 'wagmi/chains';
+import { optimism, optimismSepolia } from 'wagmi/chains';
+
 import App from './App.jsx';
+import {
+  DEV_MODE,
+  WALLET_CONNECT_APP_NAME,
+  WALLET_CONNECT_PROJECT_ID,
+} from './constants.js';
+import { CustomAvatar } from './CustomAvatar.jsx';
 
 import '@rainbow-me/rainbowkit/styles.css';
+import 'react-loading-skeleton/dist/skeleton.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
-import { CustomAvatar } from './CustomAvatar.jsx';
 
 const queryClient = new QueryClient();
 
 const config = getDefaultConfig({
-  appName: 'Wallet.id',
-  projectId: 'YOUR_PROJECT_ID',
-  chains: [optimism],
-  ssr: true, // If your dApp uses server side rendering (SSR)
+  appName: WALLET_CONNECT_APP_NAME,
+  projectId: WALLET_CONNECT_PROJECT_ID,
+  chains: [DEV_MODE ? optimismSepolia : optimism],
 });
+
+BigInt.prototype.toJSON = function () {
+  return this.toString();
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -25,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider avatar={CustomAvatar}>
           <App />
+          <ToastContainer />
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
