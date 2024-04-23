@@ -10,15 +10,28 @@ import {
   TWITTER_HANDLE,
 } from './constants';
 import { useDocumentTitle } from '@uidotdev/usehooks';
+import { useAccount } from 'wagmi';
 
 function App() {
   useDocumentTitle(PAGE_TITLE);
+  const { address } = useAccount();
+
   return (
     <div className="bg-neutral-50 h-screen flex">
       <div className="flex-col justify-between items-center flex max-w-7xl mx-auto gap-10 w-full">
         <nav className="w-full flex justify-between gap-2 px-4 py-2">
           <img className="w-36" src={brandLogo} />
-          <ConnectButton />
+          <div className="flex items-center gap-4">
+            {address && (
+              <a
+                href={`https://hns.id/account/${address}`}
+                className="text-neutral-700 text-sm font-semibold uppercase hidden md:block"
+              >
+                My Domains
+              </a>
+            )}
+            <ConnectButton />
+          </div>
         </nav>
         <section className="flex-grow w-full flex flex-col items-center p-4 gap-6 text-center">
           <div className="text-neutral-950 text-4xl lg:text-5xl font-bold leading-none">
