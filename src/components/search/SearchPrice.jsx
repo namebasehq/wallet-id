@@ -6,7 +6,13 @@ export const SearchPrice = ({ details }) => {
     return <Skeleton className="w-24 h-7" />;
   }
 
-  if (!details.isAvailable || details.priceInWei === 0n) {
+  const showPrice =
+    details.publicRegistrationOpen &&
+    details.priceInWei > 0n &&
+    details.labelValid &&
+    details.isAvailable;
+
+  if (!showPrice) {
     return null;
   }
 
