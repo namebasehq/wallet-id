@@ -25,7 +25,7 @@ function App() {
             {address && (
               <a
                 href={`https://hns.id/account/${address}`}
-                className="text-neutral-700 text-sm font-semibold uppercase hidden md:block"
+                className="text-neutral-700 text-sm font-semibold uppercase hidden md:block hover:text-neutral-500"
               >
                 My Domains
               </a>
@@ -44,16 +44,27 @@ function App() {
             <Search />
           </div>
         </section>
-        <footer className="w-full border-t px-4 py-6 flex flex-col gap-4">
+        <footer className="w-full border-t px-4 py-6 flex flex-col lg:flex-row lg:justify-between gap-4">
           <ul className="flex gap-8 text-neutral-700 text-sm font-medium uppercase">
             <li>
-              <a href={`https://twitter.com/${TWITTER_HANDLE}`}>Twitter</a>
-            </li>
-            <li>
-              <a href="https://github.com/namebasehq/wallet-id">GitHub</a>
+              <a
+                className="hover:text-neutral-500"
+                href={`https://twitter.com/${TWITTER_HANDLE}`}
+              >
+                Twitter
+              </a>
             </li>
             <li>
               <a
+                className="hover:text-neutral-500"
+                href="https://github.com/namebasehq/wallet-id"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:text-neutral-500"
                 href={`https://opensea.io/collection/handshake-slds?search[stringTraits][0][name]=TLD&search[stringTraits][0][values][0]=${TLD}`}
               >
                 OpenSea
