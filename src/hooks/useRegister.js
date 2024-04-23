@@ -51,7 +51,7 @@ export const useRegister = ({
     address: REGISTER_CONTRACT_ADDR,
     functionName: 'registerWithSignature',
     account: address,
-    value: priceInWei,
+    value: (priceInWei * 105n) / 100n,
     enabled: !!signature && !!priceInWei && !!address,
     args: [
       label,
