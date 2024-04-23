@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import { useDebounce } from '@uidotdev/usehooks';
+import { useState } from 'react';
 import { SearchInput } from './SearchInput';
 import { SearchStatus } from './SearchStatus';
 
+import { TLD } from '../../constants';
+import { useDomainStatus } from '../../hooks/useDomainStatus';
+import { Debug } from '../Debug';
 import { SearchCTA } from './SearchCTA';
 import { SearchPrice } from './SearchPrice';
-import { DEV_MODE, TLD } from '../../constants';
-import { useDomainStatus } from '../../hooks/useDomainStatus';
 
 export const Search = () => {
   // "term" is the value from the input (first part if it contains a ".")
@@ -23,56 +24,37 @@ export const Search = () => {
   const show = !!label;
 
   // if there's a "." (like "foo.bar"), we only use the first part (foo)
-  const onChange = (term) => setTerm(term.split('.').at(0));
+  const onChange = (term = '') => setTerm(term.toLowerCase().split('.').at(0));
 
   // ensure the current data is related to the final search term
   const safeData = term === data?.label ? data : undefined;
 
   return (
     <>
-      <div className="w-full bg-white rounded-2xl border border-zinc-300 shadow">
+      <div className="flex-1 bg-white rounded-2xl border border-zinc-300 shadow">
         <SearchInput expand={show} onChange={onChange} />
         {show && (
-          <div className="w-full px-5 pt-3 pb-4 bg-white flex-col justify-start items-start gap-4 inline-flex rounded-b-2xl">
-            <div className="self-stretch py-1 justify-between items-center inline-flex">
-              <div className="rounded justify-start items-center gap-2 flex">
-                <div>
-                  <span className="text-neutral-950 text-xl font-medium leading-loose">
-                    {label}
-                  </span>
-                  <span className="text-neutral-400 text-xl font-medium leading-loose">
-                    .{TLD}
-                  </span>
-                </div>
+          <div className="w-full p-3 bg-white rounded-b-2xl inline-flex flex-col lg:flex-row gap-2 flex-1 lg:overflow-scroll">
+            <div className="flex-1 lg:w-full lg:overflow-scroll items-center gap-2 flex">
+              <div
+                className="text-xl font-medium leading-loose w-full lg:w-fit overflow-scroll"
+                style={{ scrollbarWidth: 'none' }}
+              >
+                <span className="text-neutral-950">{label}</span>
+                <span className="text-neutral-400">.{TLD}</span>
+              </div>
 
-                <SearchStatus details={safeData} />
-              </div>
-              <div className="justify-start items-center gap-4 flex">
-                <SearchPrice details={safeData} />
-                <SearchCTA details={safeData} />
-              </div>
+              <SearchStatus details={safeData} />
+            </div>
+            <div className="shrink-0 flex items-center gap-4 justify-between lg:justify-end ">
+              <SearchPrice details={safeData} />
+              <SearchCTA details={safeData} />
             </div>
           </div>
         )}
       </div>
 
-      {DEV_MODE && (
-        <div className="flex flex-col gap-2">
-          <span className="text-red-600 font-semibold bg-yellow-300 px-4 py-2 rounded-md">
-            TESTNET
-          </span>
-          {error && (
-            <div className="p-2 text-red-600 bg-red-100 rounded-md">
-              {error}
-            </div>
-          )}
-          {data && (
-            <pre className="p-2 text-gray-500 bg-gray-100 border border-gray-500 rounded-lg">
-              {JSON.stringify(data, null, 2)}
-            </pre>
-          )}
-        </div>
-      )}
+      <Debug {...{ error, data }} />
     </>
   );
 };

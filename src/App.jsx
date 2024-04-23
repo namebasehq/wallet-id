@@ -15,62 +15,47 @@ function App() {
   useDocumentTitle(PAGE_TITLE);
   return (
     <div className="bg-neutral-50 h-screen flex">
-      <div className="flex-col justify-between items-center flex max-w-7xl mx-auto flex-1">
-        <div className="flex-col justify-center items-center gap-10 flex w-full">
-          <div className="h-20 p-4 justify-between items-center inline-flex w-full ">
-            <img className="w-36" src={brandLogo} />
-            <div className="justify-start items-center gap-6 flex ">
-              <ConnectButton />
-            </div>
+      <div className="flex-col justify-between items-center flex max-w-7xl mx-auto gap-10 w-full">
+        <nav className="w-full flex justify-between gap-2 px-4 py-2">
+          <img className="w-36" src={brandLogo} />
+          <ConnectButton />
+        </nav>
+        <section className="flex-grow w-full flex flex-col items-center p-4 gap-6 text-center">
+          <div className="text-neutral-950 text-4xl lg:text-5xl font-bold leading-none">
+            {HERO_TEXT}
           </div>
-          <div className="flex-col justify-start items-center gap-16 flex px-4 lg:px-0">
-            <div className="flex-col justify-start items-center gap-4 fle">
-              <div className="self-stretch flex-col justify-start items-center gap-4 flex">
-                <div className="self-stretch text-center text-neutral-950 text-5xl font-bold leading-relaxed">
-                  {HERO_TEXT}
-                </div>
-                <div className="self-stretch h-10 text-center text-neutral-500 text-2xl font-bold leading-normal">
-                  {SUB_TEXT}
-                </div>
-              </div>
-            </div>
+          <div className="text-neutral-500 text-lg lg:text-2xl font-bold leading-normal">
+            {SUB_TEXT}
+          </div>
+          <div className="w-full flex-1 pt-6  max-w-xl text-left">
             <Search />
           </div>
-        </div>
-        <div className="px-4 py-6 border-t border-gray-200 flex-col justify-start items-center gap-6 flex w-full">
-          <div className="self-stretch justify-between items-left lg:items-center inline-flex flex-col lg:flex-row gap-4">
-            <div className="justify-start items-center gap-6 flex">
+        </section>
+        <footer className="w-full border-t px-4 py-6 flex flex-col gap-4">
+          <ul className="flex gap-8 text-neutral-700 text-sm font-medium uppercase">
+            <li>
+              <a href={`https://twitter.com/${TWITTER_HANDLE}`}>Twitter</a>
+            </li>
+            <li>
+              <a href="https://github.com/namebasehq/wallet-id">GitHub</a>
+            </li>
+            <li>
               <a
-                className="text-neutral-700 text-sm font-medium uppercase"
-                href={`https://twitter.com/${TWITTER_HANDLE}`}
-              >
-                Twitter
-              </a>
-              <a
-                className="text-neutral-700 text-sm font-medium uppercase"
-                href="https://github.com/namebasehq/wallet-id"
-              >
-                GitHub
-              </a>
-              <a
-                className="text-neutral-700 text-sm font-medium uppercase"
                 href={`https://opensea.io/collection/handshake-slds?search[stringTraits][0][name]=TLD&search[stringTraits][0][values][0]=${TLD}`}
               >
-                Opensea
+                OpenSea
               </a>
+            </li>
+          </ul>
+          <div className="flex items-center gap-3">
+            <div className="text-neutral-400 text-xs font-normal uppercase">
+              powered by
             </div>
-            <div className="justify-start items-center gap-4 flex">
-              <div className="justify-start items-center gap-4 flex">
-                <div className="text-neutral-400 text-xs font-normal uppercase">
-                  powered by
-                </div>
-                <a href="https://hns.id">
-                  <img src={hnsLogo} className="w-24" />
-                </a>
-              </div>
-            </div>
+            <a href="https://hns.id">
+              <img src={hnsLogo} className="w-24" />
+            </a>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   );
