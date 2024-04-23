@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="bg-neutral-50 h-screen flex">
-      <div className="flex-col justify-between items-center flex max-w-7xl mx-auto gap-10 w-full">
-        <nav className="w-full flex justify-between gap-2 px-4 py-2">
+      <div className="flex-col justify-between items-center flex max-w-7xl mx-auto gap-10 w-full pt-3">
+        <nav className="w-full flex justify-between gap-2 px-4 py-2 items-center">
           <img className="w-36" src={brandLogo} />
           <div className="flex items-center gap-4">
             {address && (

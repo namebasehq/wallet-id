@@ -32,7 +32,7 @@ const Custom = ({
 
   return (
     <button
-      className="p-1 bg-white rounded-lg shadow justify-start items-center inline-flex gap-1 cursor-pointer hover:scale-105 transition duration-200"
+      className="p-1 bg-white rounded-lg shadow justify-start items-center inline-flex gap-1 cursor-pointer hover:scale-105 transition duration-200 focus:outline-none"
       onClick={openAccountModal}
     >
       <div className="text-sky-950 font-semibold hidden md:block pl-1">

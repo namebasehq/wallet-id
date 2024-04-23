@@ -16,7 +16,7 @@ export const SearchCTA = ({ details }) => {
     const url = `https://hns.id/domain/${details.label}.${TLD}`;
     return (
       <a
-        className=" px-3 py-2 bg-white rounded-full border border-blue-600 justify-center items-center gap-2.5 inline-flex"
+        className=" px-3 py-2 bg-white rounded-full border border-blue-600 justify-center items-center gap-2.5 inline-flex w-full lg:w-auto"
         href={url}
       >
         <div className="text-blue-600 text-sm font-semibold leading-none">

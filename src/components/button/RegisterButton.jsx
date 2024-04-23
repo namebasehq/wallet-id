@@ -18,7 +18,7 @@ export const RegisterButton = ({ details }) => {
         client.refetchQueries();
       })
       .catch((e) => {
-        toast.error(e.cause?.shortMessage || e.cause?.message);
+        toast.error(e.cause?.shortMessage || e.cause?.message || e?.message);
       })
       .finally(() => setLoading(false));
   };

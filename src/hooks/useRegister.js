@@ -46,7 +46,7 @@ export const useRegister = ({
     enabled: isConnected,
   });
 
-  const { data } = useSimulateContract({
+  const { data, failureReason } = useSimulateContract({
     abi,
     address: REGISTER_CONTRACT_ADDR,
     functionName: 'registerWithSignature',
@@ -65,5 +65,11 @@ export const useRegister = ({
   });
 
   const { writeContractAsync } = useWriteContract();
-  return () => writeContractAsync(data?.request);
+  return () => {
+    if (failureReason && !data?.request) {
+      return Promise.reject(failureReason);
+    }
+
+    return writeContractAsync(data?.request);
+  };
 };

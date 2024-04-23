@@ -37,7 +37,7 @@ export const Search = () => {
           <div className="w-full p-3 bg-white rounded-b-2xl inline-flex flex-col lg:flex-row gap-2 flex-1 lg:overflow-scroll">
             <div className="flex-1 lg:w-full lg:overflow-scroll items-center gap-2 flex">
               <div
-                className="text-xl font-medium leading-loose w-full lg:w-fit overflow-scroll"
+                className="text-xl font-medium leading-loose lg:w-fit overflow-scroll"
                 style={{ scrollbarWidth: 'none' }}
               >
                 <span className="text-neutral-950">{label}</span>

@@ -3,9 +3,9 @@ export const DEV_MODE = location.hostname === 'localhost';
 
 export const TLD = 'wallet';
 
-export const HERO_TEXT = 'Own your .wallet';
+export const HERO_TEXT = 'Own your .' + TLD;
 export const SUB_TEXT = 'Decentralized domains for websites, wallets and web3';
-export const SEARCH_PLACEHOLDER = 'Find your .wallet';
+export const SEARCH_PLACEHOLDER = 'Find your .' + TLD;
 export const PAGE_TITLE = HERO_TEXT;
 
 export const TWITTER_HANDLE = 'walletdomain';
