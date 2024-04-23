@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import { useRegister } from '../hooks/useRegister';
-import { domainDetails } from '../types';
+import { useRegister } from '../../hooks/useRegister';
+import { domainDetails } from '../../types';
 import { Button } from './Button';
 import { useState } from 'react';
 

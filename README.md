@@ -16,7 +16,7 @@ The contracts addresses are also in the [constants.js](/src/constants.js#L17-L23
 
 This project can be deployed as static website. All the data needed comes from smart contracts.
 
-Handling the communication with the contracts can be done with 2 React hooks:
+Handling the communication with the contracts can be done with a few [React hooks](https://react.dev/reference/react/hooks):
 
 ### useDomainStatus()
 
@@ -48,6 +48,21 @@ const register = useRegister({
 ```
 
 `register` is an async function that will invoke Metamask (or any other wallet the user choose) and will be resolved once the user signs the transaction.
+
+Tip: you can connect both hooks:
+
+```jsx
+const { data } = useDomainStatus({ label: 'my-sld' });
+const register = useRegister(data);
+```
+
+### usePrimaryName()
+
+```jsx
+const { name, avatar } = usePrimaryName();
+```
+
+Both can be empty/null if the user hasn't defined a primary name a name yet.
 
 ## Running locally
 

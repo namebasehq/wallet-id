@@ -1,4 +1,4 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ConnectButton } from './components/button/ConnectButton';
 import brandLogo from './assets/brand.png';
 import hnsLogo from './assets/hns.id.png';
 import { Search } from './components/search/Search';

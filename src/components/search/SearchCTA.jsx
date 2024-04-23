@@ -1,9 +1,9 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ConnectButton } from '../button/ConnectButton';
 import Skeleton from 'react-loading-skeleton';
 import { useAccount } from 'wagmi';
 import { TLD } from '../../constants';
 import { domainDetails } from '../../types';
-import { RegisterButton } from '../RegisterButton';
+import { RegisterButton } from '../button/RegisterButton';
 
 export const SearchCTA = ({ details }) => {
   const { address, isConnected } = useAccount();
