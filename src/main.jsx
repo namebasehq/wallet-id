@@ -12,7 +12,7 @@ import {
   WALLET_CONNECT_APP_NAME,
   WALLET_CONNECT_PROJECT_ID,
 } from './constants.js';
-import { CustomAvatar } from './CustomAvatar.jsx';
+import { CustomAvatar } from './components/CustomAvatar.jsx';
 
 import '@rainbow-me/rainbowkit/styles.css';
 import 'react-loading-skeleton/dist/skeleton.css';
