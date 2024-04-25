@@ -31,15 +31,12 @@ export const Search = () => {
 
   return (
     <>
-      <div className="flex-1 bg-white rounded-2xl border border-zinc-300 shadow">
+      <div className="flex-1 bg-white rounded-2xl border border-zinc-300 shadow focus-within:border-zinc-400/80 hover:border-zinc-400/80">
         <SearchInput expand={show} onChange={onChange} />
         {show && (
-          <div className="w-full p-3 bg-white rounded-b-2xl inline-flex flex-col lg:flex-row gap-2 flex-1 lg:overflow-scroll">
-            <div className="flex-1 lg:w-full lg:overflow-scroll items-center gap-2 flex">
-              <div
-                className="text-xl font-medium leading-loose lg:w-fit overflow-scroll"
-                style={{ scrollbarWidth: 'none' }}
-              >
+          <div className="w-full py-3 px-4 bg-white rounded-b-2xl inline-flex flex-col sm:flex-row gap-2 flex-1">
+            <div className="flex-1 lg:w-full items-center overflow-hidden gap-2 flex">
+              <div className="text-xl font-medium leading-loose lg:w-fit">
                 <span className="text-neutral-950">{label}</span>
                 <span className="text-neutral-400">.{TLD}</span>
               </div>

@@ -6,14 +6,14 @@ export const Debug = ({ error, data }) => {
 
   return (
     <div className="flex flex-col gap-2 mt-10 text-left">
-      <span className="text-red-600 font-semibold bg-yellow-300 px-4 py-2 rounded-md">
+      <span className="text-black font-semibold bg-yellow-300 px-4 py-2 rounded-md">
         TESTNET
       </span>
       {error && (
         <div className="p-2 text-red-600 bg-red-100 rounded-md">{error}</div>
       )}
       {data && (
-        <pre className="p-2 text-gray-500 bg-gray-100 border border-gray-500 rounded-lg overflow-scroll">
+        <pre className="p-2 text-gray-500 bg-gray-100 ring-1 ring-gray-400 rounded-md overflow-y-auto">
           {JSON.stringify(data, null, 2)}
         </pre>
       )}
