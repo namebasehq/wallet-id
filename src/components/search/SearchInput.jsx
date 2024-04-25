@@ -15,7 +15,7 @@ export const SearchInput = ({ expand, onChange }) => {
     >
       <input
         className={cn(
-          'grow shrink basis-0 rounded-t-2xl text-neutral-400 text-base font-medium leading-tight tracking-tight p-5 border-zinc-300 focus:outline-none',
+          'grow shrink basis-0 rounded-t-2xl text-neutral-600 text-base font-medium leading-tight tracking-tight p-4 border-zinc-300 focus:outline-none',
           expand ? 'rounded-t-2xl border-b' : 'rounded-2xl'
         )}
         onChange={handleChange}
